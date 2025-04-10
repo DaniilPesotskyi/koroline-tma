@@ -9,7 +9,12 @@
     --border-radius: 7px;
 
     /*Fonts*/
-    --primary-ff: "Roboto", sans-serif
+    --primary-ff: "Roboto", sans-serif;
+
+    /*Z-Index*/
+    --backdrop-z-index: 1000;
+    --drawer-z-index: 1200;
+    --modal-z-index: 1300;
 }
 
 *,
