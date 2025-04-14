@@ -7,7 +7,7 @@ export interface IProductPreview {
     materials: string,
     name: string,
     price: number,
-    discount: number,
+    available: boolean,
 }
 
 export interface IProductExtended extends IProductPreview {
@@ -15,12 +15,10 @@ export interface IProductExtended extends IProductPreview {
 }
 
 export interface IVariation {
-    "uuid": string,
-    "barcode": number,
-    "color_group": string,
-    "color": string,
-    "size": "string",
-    "quantity": number,
-    "price": number,
-    "discount": number,
+    uuid: string,
+    barcode: number,
+    color_group: string,
+    color: string,
+    size: string,
+    available: boolean,
 }
