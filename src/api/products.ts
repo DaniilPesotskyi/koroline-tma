@@ -2,7 +2,7 @@ import {api} from "@/api/axiosInstance.ts";
 
 import {IProductExtended, IProductPreview} from "@/types/products";
 
-export const getProducts = async (offset: number, limit: number, params: string): Promise<IProductPreview[]> => {
+export const getProducts = async (offset: number, limit: number, params?: string): Promise<IProductPreview[]> => {
     const result = await api.get(`/guest/products?offset=${offset}&limit=${limit}&${params}`)
     return result.data
 }

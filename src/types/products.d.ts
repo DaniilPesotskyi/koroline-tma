@@ -3,11 +3,12 @@ export interface IProductPreview {
     brand: string,
     article: string,
     category: string,
-    design: string,
-    materials: string,
+    design?: string,
+    materials?: string,
     name: string,
     price: number,
     available: boolean,
+    photo_example?: string
 }
 
 export interface IProductExtended extends IProductPreview {

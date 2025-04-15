@@ -1,8 +1,8 @@
 import styled from "styled-components";
 
 export const StyledLoaderWrapper = styled.div`
-    position: absolute;
-    bottom: 60px;
+    position: fixed;
+    bottom: 30px;
     left: 50%;
     transform: translateX(-50%);
 `

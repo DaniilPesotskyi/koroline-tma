@@ -3,39 +3,37 @@ import {Link} from "react-router-dom";
 
 import {IProductPreview} from "@/types/products";
 
-
 import {Article, descriptionStyles, Image, Price, Type, Wrap} from "@/components/ProductCard/styles.tsx";
 
 import ExpandableText from "@/components/ExpandableText/ExpandableText.tsx";
 
 interface ProductCardProps {
-    item?: IProductPreview
+    item: IProductPreview
 }
 
-const ProductCard: React.FC<ProductCardProps> = () => {
+const ProductCard: React.FC<ProductCardProps> = ({item}) => {
     return (
-        <Wrap as={Link} to={`/111577`}>
+        <Wrap as={Link} to={`/${item.article}`}>
             <div>
-                <Type>Nana Classic | Бюстгалтер</Type>
-                <Article>111577</Article>
+                <Type>{item.brand} | {item.category}</Type>
+                <Article>{item.article}</Article>
                 <ExpandableText
                     component={'p'}
                     maxChars={55}
                     customStyles={descriptionStyles}
                 >
-                    Lorem ipsum dolor sit amet consectetur adipiscing elit Ut et massa mi. Aliquam in hendrerit urna.
-                    Pellentesque sit.
+                    {item.design ? item.design : 'Опис відсутній'}
                 </ExpandableText>
                 <ExpandableText
                     component={'p'}
                     maxChars={100}
                     customStyles={descriptionStyles}
                 >
-                    Lorem ipsum dolor sit amet consectetur adipiscing elit Ut et massa mi
+                    {item.materials ? item.materials : 'Матеріал відсутній'}
                 </ExpandableText>
-                <Price>968 ₴</Price>
+                <Price>{item.price} ₴</Price>
             </div>
-            <Image/>
+            <Image src={item.photo_example}/>
         </Wrap>
     )
 }
