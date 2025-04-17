@@ -10,8 +10,6 @@ export const StyledOptions = styled.div<IStyledComponent>`
     align-items: center;
     gap: 5px;
     
-    padding-left: 10px;
-    
     overflow: auto;
     
     ${({customStyles}) => customStyles || ""}
@@ -28,6 +26,8 @@ export const StyledOption = styled.span<IStyledOption>`
     font-size: 15px;
     color: #646464;
 
+    ${({customStyles}) => customStyles || ""}
+
     ${({active}) => active &&
             css`
                 border-color: var(--accent-color);
@@ -36,6 +36,4 @@ export const StyledOption = styled.span<IStyledOption>`
                 color: #ffffff;
             `
     }
-
-    ${({customStyles}) => customStyles || ""}
 `

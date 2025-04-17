@@ -17,7 +17,7 @@ interface OptionsComponentType extends React.FC<IOptionsProps> {
     Option: typeof Option
 }
 
-const Options: OptionsComponentType = ({children, values, onChange}) => {
+const Options: OptionsComponentType = ({children, values, onChange, customStyles}) => {
     const handleClick = (value: string) => {
         let newValues: string[] = []
 
@@ -31,7 +31,7 @@ const Options: OptionsComponentType = ({children, values, onChange}) => {
     }
 
     return (
-        <StyledOptions>
+        <StyledOptions customStyles={customStyles}>
             {React.Children.map(children, (child, i) => {
                 if (!isValidElement<IOptionProps>(child)) return null;
 
