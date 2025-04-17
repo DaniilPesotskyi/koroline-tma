@@ -11,3 +11,8 @@ export const getProductById = async (id: string): Promise<IProductExtended> => {
     const result = await api.get(`/guest/products/${id}`)
     return result.data
 }
+
+export const getProductsCategories = async (params?: string): Promise<string[]> => {
+    const result = await api.get(`/filters?${params}`)
+    return result.data.categories
+}

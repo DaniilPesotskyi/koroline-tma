@@ -18,6 +18,8 @@ export const StyledOptions = styled.div<IStyledComponent>`
 `
 
 export const StyledOption = styled.span<IStyledOption>`
+    flex-shrink: 0;
+    
     padding: 6px 10px;
 
     border: 1px solid #DDDDDD;
