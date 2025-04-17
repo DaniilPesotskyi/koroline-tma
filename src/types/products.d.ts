@@ -23,3 +23,11 @@ export interface IVariation {
     size: string,
     available: boolean,
 }
+
+export interface IProductPhotos {
+    "article": string,
+    "brand": string,
+    photo: {
+        [key: string]: string[]
+    }
+}
