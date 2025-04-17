@@ -7,7 +7,6 @@ import ProductsList from "@/pages/CatalogPage/ProductsList.tsx";
 import Categories from "@/pages/CatalogPage/Categories.tsx";
 
 const CatalogPage: React.FC = () => {
-
     return (
         <>
             <Categories/>

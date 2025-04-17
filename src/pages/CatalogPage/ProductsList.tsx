@@ -1,4 +1,4 @@
-import React, {useEffect} from "react";
+import React, {memo, useEffect} from "react";
 import {useInfiniteQuery} from "@tanstack/react-query";
 import {useInView} from "react-intersection-observer";
 import {useSearchParams} from "react-router-dom";
@@ -9,9 +9,9 @@ import {IProductPreview} from "@/types/products";
 
 import {getProducts} from "@/api/products.ts";
 
-import {AsyncContentWrapper, List, ProductCard} from "@/components";
+import {AsyncContentWrapper, LastListElement, List, ProductCard} from "@/components";
 
-const RenderedList: React.FC<{ pages: Array<IProductPreview[]> }> = ({pages}) => {
+const RenderedList: React.FC<{ pages: Array<IProductPreview[]> }> = memo(({pages}) => {
     return (
         <List>
             {pages.map((page) =>
@@ -21,7 +21,7 @@ const RenderedList: React.FC<{ pages: Array<IProductPreview[]> }> = ({pages}) =>
             )}
         </List>
     )
-}
+})
 
 const ProductsList: React.FC = () => {
     const {ref, inView} = useInView({
@@ -60,11 +60,11 @@ const ProductsList: React.FC = () => {
                 isLoading={isFetching}
             >
                 {/*@ts-ignore*/}
-                <RenderedList/>
+                <RenderedList pages={data?.pages}/>
             </AsyncContentWrapper>
 
             {!hasNextPage && data?.pages && (
-                <span>Це весь наш товар</span>
+                <LastListElement>Ви в кінці списку :)</LastListElement>
             )}
 
             <span ref={ref}></span>
