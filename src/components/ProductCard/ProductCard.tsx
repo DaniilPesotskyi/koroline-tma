@@ -1,4 +1,4 @@
-import React from "react";
+import React, {memo} from "react";
 import {Link} from "react-router-dom";
 
 import {IProductPreview} from "@/types/products";
@@ -38,4 +38,4 @@ const ProductCard: React.FC<ProductCardProps> = ({item}) => {
     )
 }
 
-export default ProductCard;
+export default memo(ProductCard);

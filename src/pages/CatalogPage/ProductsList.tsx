@@ -14,10 +14,13 @@ import {AsyncContentWrapper, LastListElement, List, ProductCard} from "@/compone
 const RenderedList: React.FC<{ pages: Array<IProductPreview[]> }> = memo(({pages}) => {
     return (
         <List>
-            {pages.map((page) =>
-                page.map((product) => (
-                    <ProductCard key={product.uuid} item={product}/>
-                ))
+            {pages.map((group, index) => (
+                    <React.Fragment key={index}>
+                        {group.map((product) => (
+                            <ProductCard key={product.uuid} item={product}/>
+                        ))}
+                    </React.Fragment>
+                )
             )}
         </List>
     )
@@ -60,7 +63,7 @@ const ProductsList: React.FC = () => {
                 isLoading={isFetching}
             >
                 {/*@ts-ignore*/}
-                <RenderedList pages={data?.pages}/>
+                <RenderedList/>
             </AsyncContentWrapper>
 
             {!hasNextPage && data?.pages && (
