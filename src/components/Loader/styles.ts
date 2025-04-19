@@ -1,6 +1,8 @@
 import styled from "styled-components";
 
-export const StyledLoaderWrapper = styled.div`
+import {IStyledComponent} from "@/types/components";
+
+export const StyledLoaderWrapper = styled.div<IStyledComponent>`
     position: fixed;
     bottom: 30px;
     left: 50%;

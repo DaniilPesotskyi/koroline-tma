@@ -1,6 +1,7 @@
 :root {
     /*Colors*/
     --accent-color: #A500F2;
+    --price-color: #A50000;
 
     /*Sizes*/
     --header-height: 60px;
@@ -14,7 +15,7 @@
     /*Z-Index*/
     --backdrop-z-index: 1000;
     --drawer-z-index: 1200;
-    --modal-z-index: 1300;
+    --modal-z-index: 1400;
 
     /*ALERT*/
     --alert-error-border-color: #FF9494;
@@ -83,4 +84,10 @@ img {
 
 *::-webkit-scrollbar {
     display: none;
+}
+
+.no-scroll {
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
 }

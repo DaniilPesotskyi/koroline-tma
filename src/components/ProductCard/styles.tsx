@@ -4,9 +4,9 @@ export const Wrap = styled.div`
     display: flex;
     justify-content: space-between;
     gap: 15px;
-    
+
     padding: 15px;
-    
+
     border-top: 1px solid #E1E1E1;
     background-color: #ffffff;
 `
@@ -33,15 +33,15 @@ export const descriptionStyles = css`
 export const Price = styled.span`
     font-size: 17px;
     font-weight: 600;
-    color: #A50000;
+    color: var(--price-color);
 `
 
 export const Image = styled.img`
     flex-shrink: 0;
-    
+
     width: 130px;
     height: 80px;
-    
+
     border-radius: var(--border-radius);
     background-color: #CECECE;
 `

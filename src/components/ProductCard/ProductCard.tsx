@@ -13,7 +13,7 @@ interface ProductCardProps {
 
 const ProductCard: React.FC<ProductCardProps> = ({item}) => {
     return (
-        <Wrap as={Link} to={`/${item.article}`}>
+        <Wrap as={Link} to={`/${item.article.replaceAll(' ', '_')}`}>
             <div>
                 <Type>{item.brand} | {item.category}</Type>
                 <Article>{item.article}</Article>

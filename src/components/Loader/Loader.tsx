@@ -1,10 +1,12 @@
 import React from "react";
 
+import {IStyledComponent} from "@/types/components";
+
 import {AnimatePresence, motion, Variants} from "framer-motion";
 
 import {StyledLoaderSpinner, StyledLoaderWrapper} from "@/components/Loader/styles.ts";
 
-interface ILoaderProps {
+interface ILoaderProps extends IStyledComponent{
     show: boolean;
 }
 
@@ -26,7 +28,7 @@ const spinTransition = {
     duration: 1
 };
 
-const Loader: React.FC<ILoaderProps> = ({show}) => {
+const Loader: React.FC<ILoaderProps> = ({show, customStyles}) => {
     return (
         <AnimatePresence>
             {show && (
@@ -37,6 +39,7 @@ const Loader: React.FC<ILoaderProps> = ({show}) => {
                     exit="exit"
                     variants={loaderVariants}
                     transition={{duration: 0.3}}
+                    customStyles={customStyles}
                 >
                     <StyledLoaderSpinner
                         as={motion.span}

@@ -1,6 +1,8 @@
-import styled, {css} from "styled-components";
+import styled from "styled-components";
 
-const IconWrapper = styled.span<{ customStyles?: ReturnType<typeof css> }>`
+import {IStyledComponent} from "@/types/components";
+
+const IconWrapper = styled.span<IStyledComponent>`
     display: inline-flex;
     align-items: center;
 
