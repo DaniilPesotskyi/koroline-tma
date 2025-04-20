@@ -28,7 +28,7 @@ const RenderedList: React.FC<{ pages: Array<IProductPreview[]> }> = memo(({pages
 
 const ProductsList: React.FC = () => {
     const {ref, inView} = useInView({
-        rootMargin: '500px',
+        rootMargin: '400px'
     });
 
     const [searchParams] = useSearchParams()
@@ -39,6 +39,7 @@ const ProductsList: React.FC = () => {
         fetchNextPage,
         isError,
         hasNextPage,
+        isFetchingNextPage
     } = useInfiniteQuery({
         queryKey: [PRODUCTS_QUERY_KEY, searchParams.toString()],
         queryFn: async ({pageParam}) => getProducts(pageParam, 20, searchParams.toString()),
@@ -70,7 +71,7 @@ const ProductsList: React.FC = () => {
                 <LastListElement>Ви в кінці списку :)</LastListElement>
             )}
 
-            <span ref={ref}></span>
+            {!isFetchingNextPage ? <span ref={ref}></span> : <LastListElement></LastListElement>}
         </>
     )
 }
