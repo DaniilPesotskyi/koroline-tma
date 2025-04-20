@@ -1,12 +1,16 @@
 import React from "react";
-import {Outlet} from "react-router-dom";
+import {Outlet, useOutlet} from "react-router-dom";
 
-import {PageHeading} from "@/components";
+import {Drawer, PageHeading} from "@/components";
 
 import ProductsList from "@/pages/CatalogPage/ProductsList.tsx";
 import Categories from "@/pages/CatalogPage/Categories.tsx";
 
+import {drawerStyles} from "@/pages/CatalogPage/styles.ts";
+
 const CatalogPage: React.FC = () => {
+    const outlet = useOutlet();
+
     return (
         <>
             <Categories/>
@@ -17,7 +21,15 @@ const CatalogPage: React.FC = () => {
 
             <ProductsList/>
 
-            <Outlet/>
+            <Drawer
+                customStyles={drawerStyles}
+                open={Boolean(outlet)}
+                onClose={() => window.history.back()}
+                position={"bottom"}>
+                <>
+                    <Outlet/>
+                </>
+            </Drawer>
         </>
     )
 }
