@@ -11,6 +11,8 @@ export const StyledDrawer = styled.div<StyledDrawerProps>`
     padding: 15px;
     
     background-color: #fff;
+
+    transform: translateZ(0);
     
     z-index: var(--drawer-z-index);
 

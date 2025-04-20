@@ -57,7 +57,11 @@ const Drawer: React.FC<DrawerProps> = (
                         animate="visible"
                         exit="exit"
                         variants={drawerVariants[position]}
-                        transition={{duration: 0.3}}
+                        transition={{
+                            type: "tween",
+                            ease: "easeOut",
+                            duration: 0.3,
+                        }}
                     >
                         {children}
                     </StyledDrawer>

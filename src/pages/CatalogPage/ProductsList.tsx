@@ -10,18 +10,44 @@ import {IProductPreview} from "@/types/products";
 import {getProducts} from "@/api/products.ts";
 
 import {AsyncContentWrapper, LastListElement, List, ProductCard} from "@/components";
+import {useWindowVirtualizer} from "@tanstack/react-virtual";
 
 const RenderedList: React.FC<{ pages: Array<IProductPreview[]> }> = memo(({pages}) => {
+
+    const items = pages.flat() as IProductPreview[]
+
+    const virtualizer = useWindowVirtualizer({
+        count: items.length,
+        estimateSize: () => 120,
+        overscan: 3,
+    });
+
+    const virtualItems = virtualizer.getVirtualItems();
+
     return (
-        <List>
-            {pages.map((group, index) => (
-                    <React.Fragment key={index}>
-                        {group.map((product) => (
-                            <ProductCard key={product.uuid} item={product}/>
-                        ))}
-                    </React.Fragment>
-                )
-            )}
+        <List
+            style={{
+                position: 'relative',
+                height: virtualizer.getTotalSize(),
+            }}
+        >
+            {virtualItems.map(item => {
+                const product = items[item.index];
+                return (
+                    <div
+                        data-index={item.index}
+                        key={product.uuid}
+                        ref={virtualizer.measureElement}
+                        style={{
+                            position: 'absolute',
+                            top: item.start,
+                            width: '100%',
+                        }}
+                    >
+                        <ProductCard item={product}/>
+                    </div>
+                );
+            })}
         </List>
     )
 })

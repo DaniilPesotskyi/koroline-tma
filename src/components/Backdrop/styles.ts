@@ -11,7 +11,7 @@ export const StyledBackdrop = styled.div<StyledBackdropProps>`
     
     width: 100vw;
     height: 100vh;
-    background: rgba(0, 0, 0, 0.4);
+    background: rgba(0, 0, 0, 0.65);
     
     z-index: var(--backdrop-z-index);
     ${({customStyles}) => customStyles || ''}

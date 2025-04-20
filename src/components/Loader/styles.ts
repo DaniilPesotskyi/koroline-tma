@@ -7,6 +7,8 @@ export const StyledLoaderWrapper = styled.div<IStyledComponent>`
     bottom: 30px;
     left: 50%;
     transform: translateX(-50%);
+
+    z-index: 9999;
 `
 
 export const StyledLoaderSpinner = styled.span`
