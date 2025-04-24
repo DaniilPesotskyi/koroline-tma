@@ -7,8 +7,11 @@ export const wrapperStyles = css`
     padding: 20px 10px;
 `
 
-export const toggleButtonStyles = css`
-    z-index: calc(var(--drawer-z-index) + 2);
+export const toggleButtonStyles = (open: boolean) => css`
+  background-color: #ffffff;
+  z-index: ${open
+    ? 'calc(var(--backdrop-z-index) + 1)'
+    : 'auto'};
 `
 
 export const Heading = styled.h2`

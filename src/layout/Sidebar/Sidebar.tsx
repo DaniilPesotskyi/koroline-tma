@@ -31,7 +31,7 @@ const Sidebar: React.FC = () => {
 
     return (
         <>
-            <IconButton onClick={toggle} buttonCss={toggleButtonStyles}>
+            <IconButton onClick={toggle} buttonCss={toggleButtonStyles(open)}>
                 <motion.svg
                     width="23"
                     height="23"
@@ -64,7 +64,7 @@ const Sidebar: React.FC = () => {
             <Drawer
                 open={open}
                 onClose={toggle}
-                position={"right"}
+                position={"left"}
                 customStyles={wrapperStyles}
             >
                 <Heading>KOROLINE</Heading>

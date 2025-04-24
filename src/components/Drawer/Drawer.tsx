@@ -60,7 +60,7 @@ const Drawer: React.FC<DrawerProps> = (
                         transition={{
                             type: "tween",
                             ease: "easeOut",
-                            duration: 0.3,
+                            duration: 0.25,
                         }}
                     >
                         {children}

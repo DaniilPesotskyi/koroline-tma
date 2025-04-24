@@ -1,5 +1,6 @@
-import React, {memo, useEffect} from "react";
+import React, {useEffect} from "react";
 import {useInfiniteQuery} from "@tanstack/react-query";
+import {useWindowVirtualizer} from "@tanstack/react-virtual";
 import {useInView} from "react-intersection-observer";
 import {useSearchParams} from "react-router-dom";
 
@@ -10,16 +11,14 @@ import {IProductPreview} from "@/types/products";
 import {getProducts} from "@/api/products.ts";
 
 import {AsyncContentWrapper, LastListElement, List, ProductCard} from "@/components";
-import {useWindowVirtualizer} from "@tanstack/react-virtual";
 
-const RenderedList: React.FC<{ pages: Array<IProductPreview[]> }> = memo(({pages}) => {
-
+const RenderedList: React.FC<{ pages: Array<IProductPreview[]> }> = ({pages}) => {
     const items = pages.flat() as IProductPreview[]
 
     const virtualizer = useWindowVirtualizer({
         count: items.length,
         estimateSize: () => 120,
-        overscan: 3,
+        overscan: 1,
     });
 
     const virtualItems = virtualizer.getVirtualItems();
@@ -50,7 +49,7 @@ const RenderedList: React.FC<{ pages: Array<IProductPreview[]> }> = memo(({pages
             })}
         </List>
     )
-})
+}
 
 const ProductsList: React.FC = () => {
     const {ref, inView} = useInView({

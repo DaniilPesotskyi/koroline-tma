@@ -1,4 +1,12 @@
-import {css} from "styled-components";
+import styled, {css} from "styled-components";
+
+export const StyledHeader = styled.header`
+    display: flex;
+    align-items: center;
+    gap: 5px;
+
+    padding: 15px 10px 5px 10px
+`
 
 export const drawerStyles = css`
     border-top-left-radius: var(--border-radius);
@@ -6,4 +14,6 @@ export const drawerStyles = css`
 
     height: 90%;
     padding: 15px 0 0 0;
+    
+    z-index: calc(var(--drawer-z-index) + 10);
 `
