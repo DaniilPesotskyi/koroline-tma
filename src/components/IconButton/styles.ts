@@ -2,7 +2,9 @@ import styled from "styled-components";
 
 import {IStyledComponent} from "@/types/components";
 
-export const StyledIconButton = styled.button<IStyledComponent>`
+export const StyledIconButton = styled.button.withConfig({
+    shouldForwardProp: (prop) => prop !== 'customStyles'
+})<IStyledComponent>`
     display: flex;
     align-items: center;
     justify-content: center;

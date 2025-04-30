@@ -5,7 +5,7 @@ export const buttonStyles = css`
     top: 10px;
     right: 10px;
 
-    background-color: rgba(255, 120, 120, 0.8);
+    background-color: rgba(217, 25, 25, 0.85);
 
     z-index: 2;
 `

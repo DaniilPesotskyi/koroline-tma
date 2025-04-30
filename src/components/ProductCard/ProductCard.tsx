@@ -1,5 +1,5 @@
 import React, {memo} from "react";
-import {Link} from "react-router-dom";
+import {Link, useSearchParams} from "react-router-dom";
 
 import {IProductPreview} from "@/types/products";
 
@@ -12,8 +12,10 @@ interface ProductCardProps {
 }
 
 const ProductCard: React.FC<ProductCardProps> = ({item}) => {
+    const [searchParams] = useSearchParams()
+
     return (
-        <Wrap as={Link} to={`/${item.article.replaceAll(' ', '_')}`}>
+        <Wrap as={Link} to={`/${item.article.replaceAll(' ', '_')}?${searchParams.toString()}`}>
             <div>
                 <Type>{item.brand} | {item.category}</Type>
                 <Article>{item.article}</Article>

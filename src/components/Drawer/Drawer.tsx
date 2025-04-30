@@ -1,8 +1,10 @@
 import React, {ReactNode} from "react";
 import {createPortal} from "react-dom";
+import {css} from "styled-components";
 import {motion, AnimatePresence} from "framer-motion";
 
 import Backdrop from "@/components/Backdrop/Backdrop.tsx";
+
 import {StyledDrawer, StyledDrawerProps} from "@/components/Drawer/styles.ts";
 
 export interface DrawerProps extends StyledDrawerProps {
@@ -10,6 +12,8 @@ export interface DrawerProps extends StyledDrawerProps {
 
     open: boolean;
     onClose: () => void;
+
+    backdropCustomStyles?: ReturnType<typeof css>
 }
 
 const drawerVariants = {
@@ -41,12 +45,13 @@ const Drawer: React.FC<DrawerProps> = (
         open,
         onClose,
         position,
-        customStyles
+        customStyles,
+        backdropCustomStyles,
     }) => {
 
     const drawerContent = (
         <>
-            <Backdrop open={open} onClick={onClose}/>
+            <Backdrop open={open} onClick={onClose} customStyles={backdropCustomStyles}/>
             <AnimatePresence>
                 {open && (
                     <StyledDrawer

@@ -4,11 +4,15 @@ export interface StyledExpandableTextTypes {
     customStyles?: ReturnType<typeof css>
 }
 
-export const StyledExpandableText = styled.p<StyledExpandableTextTypes, {open: boolean}>`
+export const StyledExpandableText = styled.p.withConfig({
+    shouldForwardProp: (prop) => prop !== 'customStyles'
+})<StyledExpandableTextTypes, {open: boolean}>`
     ${({customStyles}) => customStyles || ""}
 `
 
-export const ToggleButton = styled.button<StyledExpandableTextTypes>`
+export const ToggleButton = styled.button.withConfig({
+    shouldForwardProp: (prop) => prop !== 'customStyles'
+})<StyledExpandableTextTypes>`
     ${({customStyles}) => customStyles || ""}
 
     display: inline-block;

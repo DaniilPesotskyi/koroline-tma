@@ -5,19 +5,23 @@ export interface IStyledOption extends IStyledComponent {
     active?: boolean
 }
 
-export const StyledOptions = styled.div<IStyledComponent>`
+export const StyledOptions = styled.div.withConfig({
+    shouldForwardProp: (prop) => prop !== 'customStyles'
+})<IStyledComponent>`
     display: flex;
     align-items: center;
     gap: 5px;
-    
+
     overflow: auto;
-    
+
     ${({customStyles}) => customStyles || ""}
 `
 
-export const StyledOption = styled.span<IStyledOption>`
+export const StyledOption = styled.span.withConfig({
+    shouldForwardProp: (prop) => prop !== 'customStyles'
+})<IStyledOption>`
     flex-shrink: 0;
-    
+
     padding: 6px 10px;
 
     border: 1px solid #DDDDDD;

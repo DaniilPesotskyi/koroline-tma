@@ -27,19 +27,17 @@ const ExpandableText: React.FC<ExpandableTextProps> = (
     const textToRender = isOpen || !shouldHide ? children : children.slice(0, maxChars);
 
     return (
-        <div>
-            <StyledExpandableText as={component} customStyles={customStyles}>
-                {textToRender}
-                {shouldHide && !isOpen && (
-                    <>
-                        ..
-                        <ToggleButton customStyles={customStyles} onClick={toggleOpen}>
-                            більше
-                        </ToggleButton>
-                    </>
-                )}
-            </StyledExpandableText>
-        </div>
+        <StyledExpandableText as={component} customStyles={customStyles}>
+            {textToRender}
+            {shouldHide && !isOpen && (
+                <>
+                    ..
+                    <ToggleButton customStyles={customStyles} onClick={toggleOpen}>
+                        більше
+                    </ToggleButton>
+                </>
+            )}
+        </StyledExpandableText>
     );
 };
 
