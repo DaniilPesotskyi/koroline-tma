@@ -1,5 +1,5 @@
 import React from "react";
-import {Outlet, useOutlet} from "react-router-dom";
+import {Outlet, useNavigate, useOutlet} from "react-router-dom";
 
 import {Drawer, PageHeading} from "@/components";
 
@@ -12,12 +12,13 @@ import {drawerStyles, StyledHeader} from "@/pages/CatalogPage/styles.ts";
 
 const OutletContainer: React.FC = () => {
     const outlet = useOutlet();
+    const navigate = useNavigate();
 
     return (
         <Drawer
             customStyles={drawerStyles}
             open={Boolean(outlet)}
-            onClose={() => window.history.back()}
+            onClose={() => navigate(-1)}
             position={"bottom"}>
             <>
                 <Outlet/>

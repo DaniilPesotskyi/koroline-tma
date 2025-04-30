@@ -9,6 +9,8 @@ import {getProductsCategories} from "@/api/products.ts";
 
 import {Options} from "@/components";
 
+import {categoriesStyles} from "@/pages/CatalogPage/styles.ts";
+
 const Categories: React.FC = () => {
     const [searchParams, setSearchParams] = useSearchParams()
 
@@ -24,7 +26,7 @@ const Categories: React.FC = () => {
     return (
         <>
             {data && (
-                <Options values={searchParams.getAll(CATEGORIES_PARAM_KEY)} onChange={handleChange}>
+                <Options customStyles={categoriesStyles} values={searchParams.getAll(CATEGORIES_PARAM_KEY)} onChange={handleChange}>
                     {data.map((category, i) => (
                         <Options.Option key={i}>{category}</Options.Option>
                     ))}

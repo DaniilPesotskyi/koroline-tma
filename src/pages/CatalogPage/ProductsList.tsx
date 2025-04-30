@@ -72,6 +72,7 @@ const ProductsList: React.FC = () => {
         getNextPageParam: (lastPage, allPages) => {
             return lastPage.length === 20 ? allPages.length * 20 : undefined;
         },
+        staleTime: 10 * (1000 * 60)
     })
 
     useEffect(() => {
