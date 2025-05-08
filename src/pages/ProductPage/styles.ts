@@ -7,6 +7,28 @@ export const StyledWrapper = styled.div`
     height: 100%;
 `
 
+// Before
+
+export const NoProductFoundBlock = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    
+    width: 85%;
+    height: 100%;
+    margin: 0 auto;
+    
+    font-size: 20px;
+    text-align: center;
+`
+
+export const noProductFoundIconStyles = css`
+    width: 60px;
+    height: 60px;
+`
+
 // Gallery
 
 export const GalleryWrap = styled.div`
@@ -88,3 +110,51 @@ export const InformationText = styled.p`
 `
 
 // Order
+
+export const orderBackdropStyles = css`
+    z-index: calc(var(--drawer-z-index) + 14);
+`
+
+export const orderDrawerStyles = css`
+    height: 70%;
+    padding: 0;
+    
+    background-color: #F8F8F8;
+
+    z-index: calc(var(--drawer-z-index) + 15);
+
+`
+
+export const OrderHeader = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    height: 60px;
+    
+    background-color: #ffffff;
+    
+    font-size: 20px;
+`
+
+export const OrderBody = styled.div`
+    padding: 15px 0 30px 0;
+`
+
+export const OrderOptionLabel = styled.p`
+    margin: 0 0 10px 20px;
+    
+    font-size: 15px;
+    color: #808080;
+`
+
+export const orderOptionsStyles = css`
+    padding: 0 10px;
+    margin-bottom: 20px;
+`
+
+export const orderOptionStyles = css`
+    padding: 10px 18px;
+    
+    font-size: 18px;
+`

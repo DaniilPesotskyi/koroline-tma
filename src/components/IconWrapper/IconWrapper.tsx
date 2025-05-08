@@ -7,8 +7,10 @@ const IconWrapper = styled.span.withConfig({
 })<IStyledComponent>`
     display: inline-flex;
     align-items: center;
-
-    ${({customStyles}) => customStyles || ""}
+    
+    & svg {
+        ${({customStyles}) => customStyles || ""}
+    }
 `;
 
 export default IconWrapper;
