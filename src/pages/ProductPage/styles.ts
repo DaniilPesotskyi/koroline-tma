@@ -32,15 +32,25 @@ export const noProductFoundIconStyles = css`
 // Gallery
 
 export const GalleryWrap = styled.div`
+    position: relative;
+    
     display: flex;
     align-items: center;
-    justify-content: center;
     
     min-height: 266px;
 `
 
 export const Image = styled.img`
     border-radius: var(--border-radius);
+`
+
+export const galleryLoaderStyles = css`
+    position: relative;
+    bottom: 0;
+`
+
+export const NoImageWrapper = styled.div`
+    margin: 0 auto;
 `
 
 export const emptyIconStyles = css`

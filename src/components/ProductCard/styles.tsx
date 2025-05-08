@@ -36,12 +36,28 @@ export const Price = styled.span`
     color: var(--price-color);
 `
 
-export const Image = styled.img`
+export const ImageWrapper = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
     flex-shrink: 0;
-
+    
     width: 130px;
-    height: 80px;
+    height: 97px;
 
     border-radius: var(--border-radius);
-    background-color: #CECECE;
+    
+    overflow: hidden;
+`
+
+export const Image = styled.img`
+    display: block;
+    width: 100%;
+    height: auto;
+`
+
+export const noPhotoIconStyles = css`
+    width: 60px;
+    height: 60px;
 `

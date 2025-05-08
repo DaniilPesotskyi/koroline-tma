@@ -5,6 +5,7 @@ import 'swiper/css/effect-coverflow';
 
 import React from "react";
 import {useQuery} from "@tanstack/react-query";
+import {motion} from 'framer-motion';
 import {Swiper, SwiperSlide} from "swiper/react";
 import {EffectCoverflow} from "swiper/modules";
 
@@ -14,33 +15,46 @@ import {GALLERY_QUERY_KEY} from "@/constants/queryKeys.ts";
 
 import {getProductsPhotos} from "@/api/products.ts";
 
-import {IconWrapper} from "@/components";
+import {IconWrapper, Loader} from "@/components";
 import {NoPhotoIcon} from "@/icons";
 
-import {emptyIconStyles, Image} from "@/pages/ProductPage/styles.ts";
-
+import {emptyIconStyles, galleryLoaderStyles, Image, NoImageWrapper} from "@/pages/ProductPage/styles.ts";
 
 interface IGalleryProps {
     article: IProductExtended['article']
 }
 
+const variants = {
+    initial: {
+        y: 25,
+        opacity: 0,
+    },
+    animate: {
+        y: 0,
+        opacity: 1,
+    }
+}
+
 const Gallery: React.FC<IGalleryProps> = ({article}) => {
-    const {data, isLoading} = useQuery({
+    const {data, isLoading, isError} = useQuery({
         queryKey: [GALLERY_QUERY_KEY, article],
         queryFn: async () => await getProductsPhotos(article)
     })
 
-    if(isLoading) {
+    if (isLoading) {
         return (
-            <h2>loading..</h2>
+            <Loader show={true} customStyles={galleryLoaderStyles}/>
         )
     }
 
-    if (!data) {
+    if (!data || isError) {
         return (
-            <IconWrapper customStyles={emptyIconStyles}>
-                <NoPhotoIcon/>
-            </IconWrapper>
+            <NoImageWrapper>
+                <IconWrapper customStyles={emptyIconStyles}>
+                    <NoPhotoIcon/>
+                </IconWrapper>
+            </NoImageWrapper>
+           
         )
     }
 
@@ -61,7 +75,7 @@ const Gallery: React.FC<IGalleryProps> = ({article}) => {
                     stretch: 0,
                     depth: 100,
                     modifier: 1,
-                    slideShadows: true,
+                    slideShadows: false,
                 }}
                 spaceBetween={20}
                 centeredSlides={true}
@@ -69,7 +83,10 @@ const Gallery: React.FC<IGalleryProps> = ({article}) => {
             >
                 {photosToRender.map((photo, i) => (
                     <SwiperSlide style={{maxWidth: '200px'}} key={i}>
-                        <Image key={i} src={photo} alt="photo"/>
+                        <motion.div variants={variants} initial='initial' animate='animate'
+                                    transition={{delay: 0.2 * i}}>
+                            <Image key={i} src={photo} alt="photo"/>
+                        </motion.div>
                     </SwiperSlide>
                 ))}
             </Swiper>

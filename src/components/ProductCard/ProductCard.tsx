@@ -3,9 +3,20 @@ import {Link, useSearchParams} from "react-router-dom";
 
 import {IProductPreview} from "@/types/products";
 
-import {Article, descriptionStyles, Image, Price, Type, Wrap} from "@/components/ProductCard/styles.tsx";
+import {NoPhotoIcon} from "@/icons";
 
-import ExpandableText from "@/components/ExpandableText/ExpandableText.tsx";
+import {ExpandableText, IconWrapper} from "@/components";
+
+import {
+    Article,
+    descriptionStyles,
+    Image,
+    ImageWrapper,
+    noPhotoIconStyles,
+    Price,
+    Type,
+    Wrap
+} from "@/components/ProductCard/styles.tsx";
 
 interface ProductCardProps {
     item: IProductPreview
@@ -35,7 +46,15 @@ const ProductCard: React.FC<ProductCardProps> = ({item}) => {
                 </ExpandableText>
                 <Price>{item.price} ₴</Price>
             </div>
-            <Image src={item.photo_example}/>
+            <ImageWrapper>
+                {item.photo_example ? (
+                    <Image src={item.photo_example}/>
+                ) : (
+                    <IconWrapper customStyles={noPhotoIconStyles}>
+                        <NoPhotoIcon/>
+                    </IconWrapper>
+                )}
+            </ImageWrapper>
         </Wrap>
     )
 }

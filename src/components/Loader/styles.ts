@@ -9,6 +9,8 @@ export const StyledLoaderWrapper = styled.div<IStyledComponent>`
     transform: translateX(-50%);
 
     z-index: 9999;
+    
+    ${({customStyles}) => customStyles || ""};
 `
 
 export const StyledLoaderSpinner = styled.span`
