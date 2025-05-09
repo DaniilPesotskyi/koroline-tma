@@ -21,3 +21,38 @@ export const drawerStyles = css`
 
     z-index: calc(var(--drawer-z-index) + 10);
 `
+
+// CartButton
+
+export const cartButtonStyles = css`
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    
+    width: 50px;
+    height: 50px;
+    
+    border: 1px solid var(--accent-color);
+    border-radius: 50%;
+    background-color: #ffffff;
+    
+    z-index: calc(var(--backdrop-z-index) - 10);
+`
+
+export const CartQuantity = styled.span`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    position: absolute;
+    top: 30px;
+    right: 30px;
+
+    width: 20px;
+    height: 20px;
+
+    border-radius: 50%;
+    background-color: var(--accent-color);
+
+    color: #ffffff;
+`

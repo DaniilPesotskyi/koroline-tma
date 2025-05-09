@@ -6,7 +6,9 @@ export interface StyledAlertProps extends IStyledComponent {
     variant: 'info' | 'success' | 'warning' | 'error'
 }
 
-export const StyledAlert = styled.div<StyledAlertProps>`
+export const StyledAlert = styled.div.withConfig({
+    shouldForwardProp: (props) => props !== 'customStyles'
+})<StyledAlertProps>`
     display: flex;
     align-items: start;
     gap: 4px;

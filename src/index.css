@@ -17,6 +17,16 @@
     --drawer-z-index: 1200;
     --modal-z-index: 1400;
 
+    /*Step Indicator Colors*/
+    --inactive-step-bg-color: rgba(56, 56, 56, 0.8);
+    --inactive-step-color: #ffffff;
+
+    --active-step-bg-color: rgba(165, 0, 242, 0.8);
+    --active-step-color: #ffffff;
+
+    --complete-step-bg-color: rgba(15, 79, 3, 0.8);
+    --complete-step-color: #ffffff;
+
     /*ALERT*/
     --alert-error-border-color: #FF9494;
     --alert-error-bg-color: #FFD6D6;

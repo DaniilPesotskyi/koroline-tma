@@ -1,0 +1,1 @@
+export const LS_SAVED_ORDER_INFO_KEY = 'order_info'

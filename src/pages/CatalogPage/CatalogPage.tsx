@@ -7,6 +7,7 @@ import SearchBar from "@/layout/Search/Search.tsx";
 import Sidebar from "@/layout/Sidebar/Sidebar.tsx";
 import ProductsList from "@/pages/CatalogPage/ProductsList.tsx";
 import Categories from "@/pages/CatalogPage/Categories.tsx";
+import CartButton from "@/pages/CatalogPage/CartButton.tsx";
 
 import {drawerStyles, StyledHeader} from "@/pages/CatalogPage/styles.ts";
 
@@ -42,6 +43,7 @@ const CatalogPage: React.FC = () => {
             </PageHeading>
 
             <ProductsList/>
+            <CartButton />
 
             <OutletContainer/>
         </>

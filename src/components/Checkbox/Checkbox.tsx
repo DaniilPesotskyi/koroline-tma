@@ -1,4 +1,4 @@
-import React, { ReactNode, useState } from "react";
+import React, { ReactNode } from "react";
 
 import CheckboxContext from "./CheckboxContext";
 
@@ -12,6 +12,9 @@ import {StyledCheckboxWrap} from "@/components/Checkbox/styles.ts";
 export interface CheckboxProps extends IStyledComponent{
     children: ReactNode;
     id: string;
+
+    checked: boolean;
+    handleChange: (checked: boolean) => void;
 }
 
 interface CheckboxComponentType extends React.FC<CheckboxProps> {
@@ -19,8 +22,7 @@ interface CheckboxComponentType extends React.FC<CheckboxProps> {
     Label: typeof CheckboxLabel;
 }
 
-const Checkbox: CheckboxComponentType = ({ children, id, customStyles }) => {
-    const [checked, setChecked] = useState(false);
+const Checkbox: CheckboxComponentType = ({ children, id, customStyles, checked, handleChange }) => {
 
     return (
         <StyledCheckboxWrap customStyles={customStyles}>
@@ -28,7 +30,7 @@ const Checkbox: CheckboxComponentType = ({ children, id, customStyles }) => {
                 value={{
                     id,
                     checked,
-                    onChange: setChecked,
+                    onChange: handleChange,
                 }}
             >
                 {children}
