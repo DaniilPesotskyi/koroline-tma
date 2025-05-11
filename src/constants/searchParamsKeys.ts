@@ -1,1 +1,1 @@
-export const CATEGORIES_PARAM_KEY = 'categories'
+export const FILTERS_PARAM_KEY = 'filters'

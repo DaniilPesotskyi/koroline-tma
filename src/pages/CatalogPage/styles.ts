@@ -8,10 +8,7 @@ export const StyledHeader = styled.header`
     padding: 15px 10px 5px 10px
 `
 
-export const categoriesStyles = css`
-    padding: 0 10px;
-`
-
+// Product
 export const drawerStyles = css`
     border-top-left-radius: var(--border-radius);
     border-top-right-radius: var(--border-radius);
@@ -23,19 +20,18 @@ export const drawerStyles = css`
 `
 
 // CartButton
-
 export const cartButtonStyles = css`
     position: fixed;
     bottom: 20px;
     left: 20px;
-    
+
     width: 50px;
     height: 50px;
-    
+
     border: 1px solid var(--accent-color);
     border-radius: 50%;
     background-color: #ffffff;
-    
+
     z-index: calc(var(--backdrop-z-index) - 10);
 `
 

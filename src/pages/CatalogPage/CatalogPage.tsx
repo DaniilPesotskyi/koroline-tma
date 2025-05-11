@@ -5,8 +5,8 @@ import {Drawer, PageHeading} from "@/components";
 
 import SearchBar from "@/layout/Search/Search.tsx";
 import Sidebar from "@/layout/Sidebar/Sidebar.tsx";
+import Filters from "@/layout/Filters/Filters.tsx";
 import ProductsList from "@/pages/CatalogPage/ProductsList.tsx";
-import Categories from "@/pages/CatalogPage/Categories.tsx";
 import CartButton from "@/pages/CatalogPage/CartButton.tsx";
 
 import {drawerStyles, StyledHeader} from "@/pages/CatalogPage/styles.ts";
@@ -36,7 +36,7 @@ const CatalogPage: React.FC = () => {
                 <Sidebar/>
             </StyledHeader>
 
-            <Categories/>
+            <Filters/>
 
             <PageHeading>
                 <PageHeading.Title>Каталог</PageHeading.Title>
