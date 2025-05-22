@@ -171,17 +171,6 @@ export const ErrorMessage = styled.p`
     text-align: center;
 `
 
-export const StyledRetryButton = styled.button`
-    padding: 14px 25px;
-    margin-bottom: 40px;
-    
-    border: 0;
-    border-radius: var(--border-radius);
-    
-    font-size: 18px;
-    color: #000000;
-`
-
 export const StyledExitButton = styled.button`
     padding: 14px 25px;
     margin-bottom: 40px;

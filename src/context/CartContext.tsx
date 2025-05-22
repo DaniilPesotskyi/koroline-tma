@@ -6,7 +6,7 @@ interface ICartContext {
     items: ICartItem[];
     increment: (variant: ICartItem) => void;
     decrement: (variant: ICartItem) => void;
-    deleteItem: (uuid: ICartItem['uuid']) => void;
+    deleteItem: (barcode: ICartItem['barcode']) => void;
     clearCart: () => void;
 
     orderInfo: IOrderInfo | null;
@@ -25,11 +25,11 @@ export const CartContextProvider: React.FC<ICartProviderProps> = ({children}) =>
 
     const increment = (variant: ICartItem) => {
         setItems(prevState => {
-            const variantInCart = prevState.find((v) => v.uuid === variant.uuid)
+            const variantInCart = prevState.find((v) => v.barcode === variant.barcode)
 
             if (variantInCart) {
                 return prevState.map(v =>
-                    v.uuid === variant.uuid
+                    v.barcode === variant.barcode
                         ? {...v, quantity: v.quantity + 1}
                         : v
                 );
@@ -43,7 +43,7 @@ export const CartContextProvider: React.FC<ICartProviderProps> = ({children}) =>
         setItems(prevState =>
             prevState
                 .map(item =>
-                    item.uuid === variant.uuid
+                    item.barcode === variant.barcode
                         ? {...item, quantity: item.quantity - 1}
                         : item
                 )
@@ -51,9 +51,9 @@ export const CartContextProvider: React.FC<ICartProviderProps> = ({children}) =>
         );
     };
 
-    const deleteItem = (uuid: ICartItem['uuid']) => {
+    const deleteItem = (uuid: ICartItem['barcode']) => {
         setItems(prevState => {
-            return prevState.filter(item => item.uuid !== uuid)
+            return prevState.filter(item => item.barcode !== uuid)
         })
     }
 

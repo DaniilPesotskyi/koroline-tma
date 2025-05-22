@@ -35,7 +35,7 @@ const CartItem: React.FC<ICartItemProps> = ({item, disabled}) => {
     }
 
     const handleDelete = () => {
-        deleteItem(item.uuid)
+        deleteItem(item.barcode)
     }
 
     return (

@@ -37,9 +37,9 @@ const ItemsList: React.FC<ICartStepProps> = ({onNext}) => {
                         animate={{height: "auto"}}
                         exit={{height: 0, overflow: "hidden"}}
                         transition={{type: "spring", bounce: 0, duration: 0.4}}
-                        key={item.uuid}
+                        key={item.barcode}
                     >
-                        <CartItem key={item.uuid} item={item}/>
+                        <CartItem key={item.barcode} item={item}/>
                     </motion.li>
                 ))}
             </AnimatePresence>

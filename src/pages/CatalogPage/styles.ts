@@ -3,9 +3,15 @@ import styled, {css} from "styled-components";
 export const StyledHeader = styled.header`
     display: flex;
     align-items: center;
+    justify-content: space-between;
     gap: 5px;
 
     padding: 15px 10px 5px 10px
+`
+
+export const Title = styled.h1`
+    font-size: 24px;
+    font-style: italic;
 `
 
 // Product

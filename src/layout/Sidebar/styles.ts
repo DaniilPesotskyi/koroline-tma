@@ -47,7 +47,7 @@ export const NavigationLink = styled(NavLink)`
     align-items: center;
     gap: 10px;
     
-    padding: 8px 15px;
+    padding: 12px 18px;
 
     border-radius: var(--border-radius);
 

@@ -1,7 +1,7 @@
 import {IProductPreview, IVariation} from "@/types/products";
 
 export interface ICartItem extends Omit<IProductPreview, 'uuid'> {
-    uuid: IVariation['uuid']
+    barcode: IVariation['barcode']
     quantity: number
     color: string;
     size: string;

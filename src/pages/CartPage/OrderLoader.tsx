@@ -3,27 +3,23 @@ import {useNavigate} from "react-router-dom";
 
 import {useTelegram} from "@/hooks";
 
-import {useCart} from "@/context/CartContext.tsx";
-
 import {Loader} from "@/components";
 import {
     ErrorMessage,
     OrderLoaderWrap,
     StyledContinueButton,
     StyledExitButton,
-    StyledRetryButton, SuccessMessage
+    SuccessMessage
 } from "@/pages/CartPage/styles.ts";
 
 interface IOrderLoaderProps {
     isPending: boolean,
     isSuccess: boolean,
     isError: boolean,
-    retry: () => void,
 }
 
-const OrderLoader: React.FC<IOrderLoaderProps> = ({isPending, isSuccess, isError, retry}) => {
+const OrderLoader: React.FC<IOrderLoaderProps> = ({isPending, isSuccess, isError}) => {
     const navigate = useNavigate();
-    const {clearCart} = useCart()
     const {hideMainButton, hideBackButton} = useTelegram()
 
     useEffect(() => {
@@ -33,7 +29,6 @@ const OrderLoader: React.FC<IOrderLoaderProps> = ({isPending, isSuccess, isError
 
     const onExit = () => {
         navigate(-1)
-        clearCart()
     }
 
     if (isPending) {
@@ -50,9 +45,6 @@ const OrderLoader: React.FC<IOrderLoaderProps> = ({isPending, isSuccess, isError
                 <ErrorMessage>
                     Під час оформлення виникла невідома помилка :(
                 </ErrorMessage>
-                <StyledRetryButton onClick={retry}>
-                    Спробувати ще раз
-                </StyledRetryButton>
                 <StyledExitButton onClick={onExit}>
                     Вийти
                 </StyledExitButton>

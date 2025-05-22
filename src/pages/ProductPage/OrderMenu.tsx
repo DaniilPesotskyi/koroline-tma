@@ -66,7 +66,7 @@ const OrderMenu: React.FC<IProps> = ({product, onClose}) => {
                 color: color,
                 size: size,
                 quantity: 1,
-                uuid: selectedVariant.uuid,
+                barcode: selectedVariant.barcode,
                 photo_example: photo ? photo[0] : '',
             })
 

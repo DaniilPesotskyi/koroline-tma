@@ -3,6 +3,8 @@ import {useMutation} from "@tanstack/react-query";
 
 import {ICartStepProps} from "@/pages/CartPage/CartPage.tsx";
 
+import {ISendMessageProps, sendMessage} from "@/api/telegram.ts";
+
 import {useCart} from "@/context/CartContext.tsx";
 
 import {useTelegram} from "@/hooks";
@@ -20,34 +22,68 @@ import {
     OrderNumber, OrderTotalPriceLabel, OrderTotalPriceValue
 } from "@/pages/CartPage/styles.ts";
 
-export const createOrder = async (): Promise<{ status: string }> => {
-    await new Promise(resolve => setTimeout(resolve, 3000));
-    const isSuccess = Math.random() < 0.5;
-
-    if (isSuccess) {
-        return {status: "success"};
-    } else {
-        throw new Error("Failed to create order");
-    }
-};
-
 const Accepting: React.FC<ICartStepProps> = ({onPrev}) => {
-    const {addBackButtonHandler, addMainButtonHandler} = useTelegram()
-
+    const {user, addBackButtonHandler, addMainButtonHandler} = useTelegram()
     const {items, orderInfo} = useCart()
 
     const {
-        mutate,
+        mutateAsync,
         isPending,
         isSuccess,
         isError,
     } = useMutation({
-        mutationFn: createOrder
+        mutationFn: sendMessage
     });
 
     useEffect(() => {
-        const makeOrder = () => {
-            mutate()
+        const makeOrder = async () => {
+            const divider = '-------------------------\n'
+
+            const managerData: ISendMessageProps = {
+                chatId: import.meta.env.VITE_TELEGRAM_ORDERS_CHAT_ID,
+                message: `✅Замовлення \n ${divider}`,
+            }
+
+            const clientData: ISendMessageProps = {
+                chatId: user.id,
+                message: `✅Ваше замовлення \n ${divider}`,
+            }
+
+            items.forEach((item, i) => {
+                // Order for client
+                clientData.message += `🌸*${item.category} ${item.brand}*(${item.article}) \n *${item.quantity} од.* в кольорі *${item.color}* на суму *${item.quantity * item.price}* ₴\n`
+                if (i !== items.length - 1) clientData.message += `\n`
+                // Order for manager
+                managerData.message += `${item.barcode} - ${item.quantity}\n`
+                if (i !== items.length - 1) managerData.message += `\n`
+            })
+
+
+            managerData.message += divider
+            clientData.message += divider
+
+            // Shipping
+            if (orderInfo) {
+                const orderInformation = `😇 ФІО: *${orderInfo.name}\n*📍 Місто: *${orderInfo.city}\n*🚚 Відділення НП: *${orderInfo.post}*\n📞 Номер телефону: *${orderInfo.phone}*\n`
+
+                managerData.message += orderInformation
+                clientData.message += orderInformation
+            }
+
+            // Thanks for client
+            managerData.message += divider
+            clientData.message += divider
+
+            clientData.message += `🙂З *будь-яких питань* звертайтесь до нашого *менеджера* - +38 096 000 00 00\n`
+            clientData.message += divider
+            clientData.message += `❤️ Дякуємо що обрали нас!`
+
+            try {
+                await mutateAsync(managerData)
+                await mutateAsync(clientData)
+            } catch (error) {
+                console.log(error)
+            }
         }
 
         const unsubscribeMainButton = addMainButtonHandler(makeOrder, 'ОФОРМИТИ')
@@ -70,7 +106,7 @@ const Accepting: React.FC<ICartStepProps> = ({onPrev}) => {
             <AcceptingWrap>
                 <AcceptingList>
                     {items.map(item => (
-                        <li>
+                        <li key={item.barcode}>
                             <CartItem item={item} disabled={true}/>
                         </li>
                     ))}
@@ -114,7 +150,7 @@ const Accepting: React.FC<ICartStepProps> = ({onPrev}) => {
                 position={'bottom'}
                 customStyles={orderLoaderDrawerStyles}
             >
-                <OrderLoader isPending={isPending} isError={isError} isSuccess={isSuccess} retry={() => mutate()}/>
+                <OrderLoader isPending={isPending} isError={isError} isSuccess={isSuccess}/>
             </Drawer>
         </>
     )
