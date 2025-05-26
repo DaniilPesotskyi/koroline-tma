@@ -10,7 +10,7 @@ const Path = (props: IPathProps) => (
     <motion.path
         fill="transparent"
         strokeWidth="2"
-        stroke="hsl(0, 0%, 18%)"
+        stroke="var(--tg-theme-text-color)"
         strokeLinecap="round"
         {...props}
     />

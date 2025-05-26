@@ -21,7 +21,7 @@ export const StyledPageHeadingTitle = styled.h2<IStyledComponent>`
 
 export const StyledPageHeadingSubtitle = styled.h6<IStyledComponent>`
     font-size: 14px;
-    color: #515151;
+    color: var(--tg-theme-subtitle-text-color);
 
     ${({customStyles}) => customStyles || ""}
 `

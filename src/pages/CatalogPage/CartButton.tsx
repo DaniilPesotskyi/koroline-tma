@@ -12,7 +12,7 @@ import {useNavigate} from "react-router-dom";
 
 const variants: Variants = {
     hidden: {
-        opacity: 0
+        opacity: 0,
     },
     visible: {
         opacity: 1

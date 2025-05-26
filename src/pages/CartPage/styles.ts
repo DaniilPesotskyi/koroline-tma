@@ -7,7 +7,7 @@ export const containerStyles = css`
 export const Steps = styled.div`
     display: flex;
     align-items: center;
-    margin: 10px 0 20px 0
+    margin: 10px 0 20px 0;
 `
 
 // Step
@@ -62,7 +62,7 @@ export const StepTitle = styled.h2`
 
 export const StepSubTitle = styled.p`
     font-size: 13px;
-    color: #515151;
+    color: var(--tg-theme-subtitle-text-color);
 `
 
 
@@ -83,7 +83,7 @@ export const InputsGroupLabel = styled.h3`
 
     font-size: 13px;
     font-weight: 400;
-    color: #9D9D9D;
+    color: var(--tg-theme-hint-color);
 `
 
 export const alertStyles = css`
@@ -97,7 +97,7 @@ export const AcceptingWrap = styled.div`
     margin-bottom: 10px;
 
     border-radius: var(--border-radius);
-    background-color: #ffffff;
+    background-color: var(--tg-theme-bg-color);
 `
 
 export const OrderNumber = styled.h3`
@@ -118,7 +118,7 @@ export const AcceptingItem = styled.li`
 
 export const AcceptingLabel = styled.span`
     font-size: 14px;
-    color: #b2b2b2;
+    color: var(--tg-theme-hint-color);
 `
 export const AcceptingValue = styled.span`
     font-size: 16px
@@ -141,7 +141,7 @@ export const OrderTotalPriceValue = styled.p`
 export const orderLoaderDrawerStyles = css`
     width: 100%;
     height: 90%;
-    
+
     border-top-left-radius: 15px;
     border-top-right-radius: 15px;
 `

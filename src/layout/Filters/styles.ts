@@ -21,12 +21,12 @@ export const StyledFilterButton = styled.button`
     
     padding: 5px 10px;
 
-    border: 1px solid #E1E1E1;
+    border: 1px solid var(--tg-theme-hint-color);
     border-radius: var(--border-radius);
     background-color: transparent;
 
     font-size: 16px;
-    color: #5b5b5b;
+    color: var(--tg-theme-text-color);
 `
 
 export const deleteIconStyles = css`
@@ -44,8 +44,6 @@ export const drawerStyles = css`
     
     height: 90%;
     padding: 0;
-    
-    background-color: #f1f1f1;
 `
 
 export const PickerHeader = styled.div`
@@ -56,14 +54,15 @@ export const PickerHeader = styled.div`
     
     height: 60px;
     
-    background-color: #ffffff;
+    background-color: var(-tg-theme-bg-color);
     
     font-size: 20px;
+    color: var(--tg-theme-text-color);
 `
 
 export const PickerSubtitle = styled.span`
     font-size: 14px;
-    color: #bdbdbd;
+    color: var(--tg-theme-subtitle-text-color);
 `
 
 export const PickerList = styled.ul`
@@ -77,6 +76,8 @@ export const PickerList = styled.ul`
     padding: 10px;
     
     overflow-y: auto;
+    
+    background-color: var(--tg-theme-secondary-bg-color);
 `
 
 export const PickerButton = styled.button<{active: boolean}>`
@@ -94,10 +95,10 @@ export const PickerButton = styled.button<{active: boolean}>`
     
     border: 0;
     border-radius: var(--border-radius);
-    background-color: #ffffff;
+    background-color: var(--tg-theme-bg-color);
     
     font-size: 16px;
-    color: #000000;
+    color: var(--tg-theme-text-color);
 
     opacity: ${({ disabled }) => (disabled ? 0.3 : 3)};
     

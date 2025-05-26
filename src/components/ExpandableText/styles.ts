@@ -22,6 +22,6 @@ export const ToggleButton = styled.button.withConfig({
     border: none;
     background-color: transparent;
 
-    color: #000000;
+    color: var(--tg-theme-text-color);
     font-style: italic;
 `

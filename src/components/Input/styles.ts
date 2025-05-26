@@ -11,9 +11,10 @@ export const StyledInput = styled.input`
 
     border: 0;
     border-radius: var(--border-radius);
-    background-color: #ffffff;
+    background-color: var(--tg-theme-bg-color);
 
     font-size: 16px;
+    color: var(--tg-theme-text-color);
 
     transition: var(--transition);
     outline: 1px solid transparent;
@@ -36,7 +37,7 @@ export const StyledLabel = styled.label`
     transform: translateY(-50%);
 
     font-size: 16px;
-    color: #DCDCDC;
+    color: var(--tg-theme-subtitle-text-color);
 
     transition: var(--transition);
     pointer-events: none;
@@ -50,9 +51,9 @@ export const iconStyles = css`
     
     padding-right: 6px;
     
-    border-right: 1px solid #DCDCDC;
+    border-right: 1px solid var(--tg-theme-subtitle-text-color);
     
-    fill: #DCDCDC;
+    fill: var(--tg-theme-subtitle-text-color);
     
     pointer-events: none;
     transition: var(--transition);

@@ -19,7 +19,7 @@ export const StyledLoaderSpinner = styled.span`
     width: 40px;
     height: 40px;
 
-    border: 7px solid #eeeeee;
+    border: 7px solid var(--tg-theme-secondary-bg-color);
     border-top: 7px solid var(--accent-color);
     border-radius: 50%;
 `

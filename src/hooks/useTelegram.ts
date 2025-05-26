@@ -54,6 +54,7 @@ const useTelegram = () => {
     return {
         telegram,
         user,
+        theme: telegram.themeParams,
 
         addMainButtonHandler,
         showMainButton,

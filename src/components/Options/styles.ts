@@ -24,11 +24,11 @@ export const StyledOption = styled.span.withConfig({
 
     padding: 6px 10px;
 
-    border: 1px solid #DDDDDD;
+    border: 1px solid var(--tg-theme-hint-color);
     border-radius: var(--border-radius);
 
     font-size: 15px;
-    color: #646464;
+    color: var(--tg-theme-text-color);
 
     ${({customStyles}) => customStyles || ""}
 

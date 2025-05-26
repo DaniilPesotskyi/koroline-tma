@@ -19,7 +19,7 @@ import {
     AcceptingList,
     AcceptingValue,
     AcceptingWrap, orderLoaderDrawerStyles,
-    OrderNumber, OrderTotalPriceLabel, OrderTotalPriceValue
+    OrderTotalPriceLabel, OrderTotalPriceValue
 } from "@/pages/CartPage/styles.ts";
 
 const Accepting: React.FC<ICartStepProps> = ({onPrev}) => {
@@ -41,12 +41,14 @@ const Accepting: React.FC<ICartStepProps> = ({onPrev}) => {
 
             const managerData: ISendMessageProps = {
                 chatId: import.meta.env.VITE_TELEGRAM_ORDERS_CHAT_ID,
-                message: `✅Замовлення \n ${divider}`,
+                // message: `✅Замовлення \n ${divider}`,
+                message: ''
             }
 
             const clientData: ISendMessageProps = {
                 chatId: user.id,
-                message: `✅Ваше замовлення \n ${divider}`,
+                // message: `✅Ваше замовлення \n ${divider}`,
+                message: ''
             }
 
             items.forEach((item, i) => {
@@ -74,7 +76,7 @@ const Accepting: React.FC<ICartStepProps> = ({onPrev}) => {
             managerData.message += divider
             clientData.message += divider
 
-            clientData.message += `🙂З *будь-яких питань* звертайтесь до нашого *менеджера* - +38 096 000 00 00\n`
+            clientData.message += `🙂З *будь-яких питань* звертайтесь до нашого *менеджера* - +380675644840\n`
             clientData.message += divider
             clientData.message += `❤️ Дякуємо що обрали нас!`
 
@@ -99,9 +101,9 @@ const Accepting: React.FC<ICartStepProps> = ({onPrev}) => {
 
     return (
         <>
-            <AcceptingWrap>
-                <OrderNumber>Замовлення №123123123</OrderNumber>
-            </AcceptingWrap>
+            {/*<AcceptingWrap>*/}
+            {/*    <OrderNumber>Замовлення №123123123</OrderNumber>*/}
+            {/*</AcceptingWrap>*/}
 
             <AcceptingWrap>
                 <AcceptingList>

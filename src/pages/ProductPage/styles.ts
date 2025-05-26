@@ -3,7 +3,7 @@ import styled, {css} from "styled-components";
 export const StyledWrapper = styled.div`
     display: flex;
     flex-direction: column;
-    
+
     height: 100%;
 `
 
@@ -15,11 +15,11 @@ export const NoProductFoundBlock = styled.div`
     justify-content: center;
     align-items: center;
     gap: 20px;
-    
+
     width: 85%;
     height: 100%;
     margin: 0 auto;
-    
+
     font-size: 20px;
     text-align: center;
 `
@@ -33,10 +33,10 @@ export const noProductFoundIconStyles = css`
 
 export const GalleryWrap = styled.div`
     position: relative;
-    
+
     display: flex;
     align-items: center;
-    
+
     min-height: 266px;
 `
 
@@ -65,7 +65,7 @@ export const Heading = styled.div`
     grid-template-columns: 1fr auto;
     grid-auto-rows: auto auto;
     grid-gap: 5px;
-    
+
     padding: 15px 10px;
 `
 
@@ -76,12 +76,12 @@ export const Article = styled.h2`
 
 export const Category = styled.p`
     font-size: 14px;
-    color: #9D9D9D;
+    color: var(--tg-theme-hint-color);
 `
 
 export const Price = styled.p`
     align-self: flex-end;
-    
+
     font-size: 20px;
     font-weight: 500;
     color: var(--price-color);
@@ -90,18 +90,18 @@ export const Price = styled.p`
 
 export const AvailableStatus = styled.p`
     font-size: 14px;
-    color: #bdbdbd;
+    color: var();
 `
 
 // Body
 
 export const InformationBlock = styled.div`
     flex-grow: 1;
-    
+
     height: 100%;
     padding: 15px 10px;
-    
-    background-color: #F8F8F8;
+
+    background-color: var(--tg-theme-secondary-bg-color);
 `
 
 export const InformationLabel = styled.h3`
@@ -109,14 +109,14 @@ export const InformationLabel = styled.h3`
 
     font-size: 13px;
     font-weight: 400;
-    color: #adadad;
+    color: var(--tg-theme-hint-color);
 `
 
 export const InformationText = styled.p`
     margin-bottom: 15px;
-    
+
     font-size: 15px;
-    color: #5C5C5C;
+    color: var(--tg-theme-text-color);
 `
 
 // Order
@@ -128,8 +128,8 @@ export const orderBackdropStyles = css`
 export const orderDrawerStyles = css`
     height: 70%;
     padding: 0;
-    
-    background-color: #F8F8F8;
+
+    background-color: var(--tg-theme-secondary-bg-color);
 
     z-index: calc(var(--drawer-z-index) + 15);
 
@@ -139,11 +139,11 @@ export const OrderHeader = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
-    
+
     height: 60px;
-    
-    background-color: #ffffff;
-    
+
+    background-color: var(--tg-theme-bg-color);
+
     font-size: 20px;
 `
 
@@ -153,9 +153,9 @@ export const OrderBody = styled.div`
 
 export const OrderOptionLabel = styled.p`
     margin: 0 0 10px 20px;
-    
+
     font-size: 15px;
-    color: #808080;
+    color: var(--tg-theme-hint-color);
 `
 
 export const orderOptionsStyles = css`
@@ -165,6 +165,6 @@ export const orderOptionsStyles = css`
 
 export const orderOptionStyles = css`
     padding: 10px 18px;
-    
+
     font-size: 18px;
 `

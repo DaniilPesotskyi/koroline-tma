@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect} from "react";
 import {Outlet, useNavigate, useOutlet} from "react-router-dom";
 
 import {Drawer, PageHeading} from "@/components";
@@ -9,6 +9,7 @@ import ProductsList from "@/pages/CatalogPage/ProductsList.tsx";
 import CartButton from "@/pages/CatalogPage/CartButton.tsx";
 
 import {drawerStyles, StyledHeader, Title} from "@/pages/CatalogPage/styles.ts";
+import {useTelegram} from "@/hooks";
 
 const OutletContainer: React.FC = () => {
     const outlet = useOutlet();
@@ -28,6 +29,13 @@ const OutletContainer: React.FC = () => {
 }
 
 const CatalogPage: React.FC = () => {
+    const {telegram, theme} = useTelegram()
+
+    useEffect(() => {
+        telegram.setHeaderColor(theme.secondary_bg_color)
+        telegram.setBackgroundColor(theme.secondary_bg_color)
+    }, [telegram, theme]);
+
     return (
         <>
             <StyledHeader>

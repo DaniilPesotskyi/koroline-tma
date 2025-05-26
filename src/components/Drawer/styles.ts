@@ -10,7 +10,7 @@ export const StyledDrawer = styled.div<StyledDrawerProps>`
     
     padding: 15px;
     
-    background-color: #fff;
+    background-color: var(--tg-theme-bg-color);
 
     transform: translateZ(0);
     

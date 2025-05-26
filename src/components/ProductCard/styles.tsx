@@ -7,13 +7,13 @@ export const Wrap = styled.div`
 
     padding: 15px;
 
-    border-top: 1px solid #E1E1E1;
-    background-color: #ffffff;
+    border-top: 1px solid var(--tg-theme-hint-color);
+    background-color: var(--tg-theme-bg-color);
 `
 
 export const Type = styled.span`
     font-size: 13px;
-    color: #9D9D9D;
+    color: var(--tg-theme-subtitle-text-color);
 `
 
 export const Article = styled.h3`
@@ -21,13 +21,14 @@ export const Article = styled.h3`
 
     font-size: 20px;
     font-weight: bold;
+    color: var(--tg-theme-text-color);
 `
 
 export const descriptionStyles = css`
     margin-bottom: 8px;
 
     font-size: 13px;
-    color: #575757;
+    color: var(--tg-theme-hint-color);
 `
 
 export const Price = styled.span`

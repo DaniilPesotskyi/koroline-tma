@@ -25,6 +25,6 @@ export const StyledSubmessage = styled.p`
     width: 80%;
 
     font-size: 17px;
-    color: #848484;
+    color: var(--tg-theme-hint-color);
     text-align: center;
 `

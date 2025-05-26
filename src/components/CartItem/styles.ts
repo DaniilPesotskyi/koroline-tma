@@ -9,7 +9,7 @@ export const StyledWrap = styled.div`
     margin-bottom: 10px;
 
     border-radius: var(--border-radius);
-    background-color: #ffffff;
+    background-color: var(--tg-theme-bg-color);
     
     overflow: hidden;
 `
@@ -30,7 +30,7 @@ export const Image = styled.img`
     width: 81px;
     height: 108px;
 
-    background-color: #cbcbcb;
+    background-color: var(--tg-theme-secondary-bg-color);
 `
 
 export const InformationBlock = styled.div`
@@ -45,12 +45,12 @@ export const InformationBlock = styled.div`
 export const Article = styled.h3`
     font-size: 20px;
     font-weight: 600;
-    color: #000000;
+    color: var(--tg-theme-text-color);
 `
 
 export const Category = styled.p`
     font-size: 13px;
-    color: #9D9D9D;
+    color: var(--tg-theme-subtitle-text-color);
 `
 
 export const VariantWrap = styled.div`
@@ -71,7 +71,7 @@ export const VariantInfoItem = styled.span`
     
     font-size: 13px;
     font-weight: 400;
-    color: #8D8D8D;
+    color: var(--tg-theme-hint-text-color);
 `
 
 export const iconStyles = css`
@@ -92,7 +92,7 @@ export const quantityPickerButtonStyles = css`
     width: 30px;
     height: 30px;
 
-    background-color: #e8e8e8;
+    background-color: var(--tg-theme-secondary-bg-color);
 `
 
 export const QuantityPickerValue = styled.span`

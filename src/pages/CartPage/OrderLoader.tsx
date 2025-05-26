@@ -3,6 +3,8 @@ import {useNavigate} from "react-router-dom";
 
 import {useTelegram} from "@/hooks";
 
+import {useCart} from "@/context/CartContext.tsx";
+
 import {Loader} from "@/components";
 import {
     ErrorMessage,
@@ -20,6 +22,7 @@ interface IOrderLoaderProps {
 
 const OrderLoader: React.FC<IOrderLoaderProps> = ({isPending, isSuccess, isError}) => {
     const navigate = useNavigate();
+    const {clearCart} = useCart()
     const {hideMainButton, hideBackButton} = useTelegram()
 
     useEffect(() => {
@@ -29,6 +32,7 @@ const OrderLoader: React.FC<IOrderLoaderProps> = ({isPending, isSuccess, isError
 
     const onExit = () => {
         navigate(-1)
+        clearCart()
     }
 
     if (isPending) {

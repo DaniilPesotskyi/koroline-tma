@@ -36,9 +36,13 @@ export const cartButtonStyles = css`
 
     border: 1px solid var(--accent-color);
     border-radius: 50%;
-    background-color: #ffffff;
+    background-color: var(--tg-theme-bg-color);
 
     z-index: calc(var(--backdrop-z-index) - 10);
+    
+    & > svg {
+        fill: var(--tg-theme-text-color);
+    }
 `
 
 export const CartQuantity = styled.span`

@@ -14,6 +14,8 @@ export const StyledCheckboxWrap = styled.div<IStyledComponent>`
 // Label
 export const StyledCheckboxLabel = styled.label<IStyledComponent>`
     font-size: 16px;
+    
+    
 
     ${({customStyles}) => customStyles || ""}}
 `
@@ -31,16 +33,17 @@ export const StyledCheckboxIndicatorInput = styled.input<IStyledComponent>`
     margin: 0;
 
     border-radius: var(--border-radius);
-    background-color: #D9D9D9;
+    background-color: rgba(171, 171, 171, 0.7);
 
     appearance: none;
     transition: var(--transition);
-    
+
     &:checked {
         background-color: var(--accent-color);
     }
 
-    ${({customStyles}) => customStyles || ""}}
+    ${({customStyles}) => customStyles || ""}
+}
 `
 
 export const StyledCheckboxIndicator = styled.span<IStyledComponent>`

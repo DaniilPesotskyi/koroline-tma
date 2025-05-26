@@ -20,7 +20,7 @@ const CheckboxLabel: React.FC<CheckboxLabelProps> = ({children, customStyles}) =
             htmlFor={id}
             customStyles={customStyles}
             animate={{
-                color: checked ? "#000000" : "#a1a1a1",
+                color: checked ? "var(--tg-theme-text-color)" : "#a1a1a1",
             }}
             initial={false}
             transition={{

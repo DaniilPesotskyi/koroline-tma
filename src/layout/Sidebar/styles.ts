@@ -8,7 +8,7 @@ export const wrapperStyles = css`
 `
 
 export const toggleButtonStyles = (open: boolean) => css`
-  background-color: #ffffff;
+  background-color: var(--tg-theme-bg-color);
   z-index: ${open
     ? 'calc(var(--backdrop-z-index) + 1)'
     : 'auto'};
@@ -34,6 +34,7 @@ export const SubTitle = styled.h4`
     
     font-size: 13px;
     font-weight: 500;
+    color: var(--tg-theme-subtitle-text-color);
 `
 
 // Nav

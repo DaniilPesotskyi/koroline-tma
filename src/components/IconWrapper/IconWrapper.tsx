@@ -9,6 +9,7 @@ const IconWrapper = styled.span.withConfig({
     align-items: center;
     
     & svg {
+        fill: var(--tg-theme-text-color);
         ${({customStyles}) => customStyles || ""}
     }
 `;
