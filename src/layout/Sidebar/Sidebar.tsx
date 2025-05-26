@@ -1,7 +1,9 @@
 import React, {useEffect, useState} from "react";
 import {motion} from "framer-motion";
 
-import {CartIcon, FaqIcon, ShoppingBagIcon} from "@/icons";
+import {version} from "../../../package.json";
+
+import {CartIcon, ShoppingBagIcon} from "@/icons";
 
 import {Drawer, IconButton, IconWrapper, List, Path} from "@/components";
 import {
@@ -77,12 +79,12 @@ const Sidebar: React.FC = () => {
                         </IconWrapper>
                         Каталог
                     </NavigationLink>
-                    <NavigationLink to={'/help'}>
-                        <IconWrapper>
-                            <FaqIcon/>
-                        </IconWrapper>
-                        Питання
-                    </NavigationLink>
+                    {/*<NavigationLink to={'/help'}>*/}
+                    {/*    <IconWrapper>*/}
+                    {/*        <FaqIcon/>*/}
+                    {/*    </IconWrapper>*/}
+                    {/*    Питання*/}
+                    {/*</NavigationLink>*/}
                     <NavigationLink to={'/cart'}>
                         <IconWrapper>
                             <CartIcon/>
@@ -93,19 +95,19 @@ const Sidebar: React.FC = () => {
                 <Title>Контакти</Title>
                 <SubTitle>Відділ продажу</SubTitle>
                 <List customStyles={contactsListStyles}>
-                    <StyledLink>+38 (096) 000 00 00</StyledLink>
-                    <StyledLink>example@gmail.com</StyledLink>
+                    <StyledLink>+38 (067) 564 48 40</StyledLink>
+                    {/*<StyledLink>example@gmail.com</StyledLink>*/}
                 </List>
                 <SubTitle>Співпраця</SubTitle>
                 <List customStyles={contactsListStyles}>
-                    <StyledLink>example@gmail.com</StyledLink>
+                    <StyledLink>wholesale@optbelya.com</StyledLink>
                 </List>
-                <SubTitle>Технічний відділ</SubTitle>
-                <List customStyles={contactsListStyles}>
-                    <StyledLink>example@gmail.com</StyledLink>
-                </List>
+                {/*<SubTitle>Технічний відділ</SubTitle>*/}
+                {/*<List customStyles={contactsListStyles}>*/}
+                {/*    <StyledLink>example@gmail.com</StyledLink>*/}
+                {/*</List>*/}
 
-                <StyledLoveText>Made with ♥️ | 1.0</StyledLoveText>
+                <StyledLoveText>Made with ♥️ | {version}</StyledLoveText>
             </Drawer>
         </>
     )
