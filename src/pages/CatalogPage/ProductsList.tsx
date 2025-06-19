@@ -11,6 +11,7 @@ import {IProductPreview} from "@/types/products";
 import {getProducts} from "@/api/products.ts";
 
 import {AsyncContentWrapper, LastListElement, List, ProductCard} from "@/components";
+import {NotFoundStub} from "@/pages/CatalogPage/styles.ts";
 
 const RenderedList: React.FC<{ pages: Array<IProductPreview[]> }> = ({pages}) => {
     const items = pages.flat() as IProductPreview[]
@@ -88,6 +89,7 @@ const ProductsList: React.FC = () => {
                 data={data?.pages}
                 resourceName={'pages'}
                 isLoading={isFetching}
+                errorStub={<NotFoundStub>По вашим фільтрам нічого не знайдено</NotFoundStub>}
             >
                 {/*@ts-ignore*/}
                 <RenderedList/>

@@ -62,3 +62,12 @@ export const CartQuantity = styled.span`
 
     color: #ffffff;
 `
+
+export const NotFoundStub = styled.div`
+    width: 70%;
+    margin: 50px auto 0 auto;
+    
+    font-size: 20px;
+    text-align: center;
+    color: var(--tg-theme-hint-color);
+`

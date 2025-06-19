@@ -10,7 +10,8 @@ interface IAsyncContentWrapperProps {
     resourceName: string
 
     isLoading: boolean,
-    error: boolean
+    error: boolean,
+    errorStub?: React.ReactNode
 }
 
 const AsyncContentWrapper: React.FC<IAsyncContentWrapperProps> = (
@@ -19,10 +20,17 @@ const AsyncContentWrapper: React.FC<IAsyncContentWrapperProps> = (
         data,
         isLoading,
         resourceName,
-        error
+        error,
+        errorStub,
     }) => {
 
     if (error) {
+        if (errorStub) {
+            return (
+                <>{errorStub}</>
+            )
+        }
+
         return (
             <StyledErrorWrapper>
                 <StyledErrorMessage>
