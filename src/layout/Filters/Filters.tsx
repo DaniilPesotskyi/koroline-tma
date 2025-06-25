@@ -10,7 +10,7 @@ import {getProductsFilters} from "@/api/products.ts";
 import {FilterList} from "@/layout/Filters/styles.ts";
 import FiltersButton from "@/layout/Filters/FiltersButton.tsx";
 
-export type FiltersToRenderType = Omit<IFiltersType, "articles" | "designs">;
+export type FiltersToRenderType = Omit<IFiltersType, "designs" | 'min_price' | 'max_price'>;
 
 const Filters: React.FC = () => {
     const {data, isError} = useQuery({
@@ -20,7 +20,7 @@ const Filters: React.FC = () => {
 
     if (!data || isError) return null
 
-    const filters = Object.keys(data).filter(filter => !['articles', 'designs'].includes(filter)) as Array<keyof FiltersToRenderType>
+    const filters = Object.keys(data).filter(filter => !['designs', 'min_price', 'max_price'].includes(filter)) as Array<keyof FiltersToRenderType>
 
     return (
         <>

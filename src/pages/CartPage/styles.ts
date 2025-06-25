@@ -68,6 +68,14 @@ export const StepSubTitle = styled.p`
 
 // List
 
+export const EmptyMessage = styled.p`
+    margin-top: 30px;
+    
+    font-size: 22px;
+    color: var(--tg-theme-hint-color);
+    text-align: center;
+`
+
 // Form
 
 export const InputsGroup = styled.div`

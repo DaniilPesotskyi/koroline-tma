@@ -5,6 +5,8 @@ export interface IFiltersType {
     colors: string[],
     designs: IDesignType[],
     sizes: string[],
+    max_price: number,
+    min_price: number,
 }
 
 export interface IArticleFilterType {

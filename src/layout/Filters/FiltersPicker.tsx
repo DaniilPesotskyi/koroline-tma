@@ -13,7 +13,15 @@ import {useTelegram} from "@/hooks";
 import {FILTERS_QUERY_KEY} from "@/constants/queryKeys.ts";
 
 import CloseButton from "@/layout/CloseButton/CloseButton.tsx";
-import {PickerButton, PickerHeader, PickerList, PickerSubtitle} from "@/layout/Filters/styles.ts";
+
+import {
+    PickerButton,
+    PickerHeader,
+    PickerList,
+    PickerSubtitle,
+    SearchBar,
+    SearchBarWrap
+} from "@/layout/Filters/styles.ts";
 
 interface IFiltersPickerProps {
     onClose: () => void
@@ -41,10 +49,13 @@ const FiltersPicker: React.FC<IFiltersPickerProps> = ({onClose, filter}) => {
 
     const querySearchParams = new URLSearchParams(searchParams.toString())
     querySearchParams.delete(filter)
+
     const {data: filters} = useQuery({
         queryKey: [FILTERS_QUERY_KEY, querySearchParams.toString()],
         queryFn: async () => await getProductsFilters(querySearchParams.toString())
     })
+
+    const [searchQuery, setSearchQuery] = useState('')
 
     useEffect(() => {
         document.body.classList.add('no-scroll')
@@ -89,15 +100,31 @@ const FiltersPicker: React.FC<IFiltersPickerProps> = ({onClose, filter}) => {
         );
     };
 
+    const handleSearchQueryChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setSearchQuery(e.target.value)
+    }
 
-    const allFilters = useMemo(() => initialFilters?.[filter] ?? [], [initialFilters, filter]);
-    const availableFilters = useMemo(() => filters?.[filter] ?? [], [filters, filter]);
+    const allFilters = useMemo(() => {
+        if (filter === 'articles') {
+            return initialFilters?.[filter].map(item => item.article) ?? []
+        }
+        return initialFilters?.[filter] ?? []
+    }, [initialFilters, filter]);
+
+    const availableFilters = useMemo(() => {
+        if (filter === 'articles') {
+            return filters?.[filter].map(item => item.article) ?? []
+        }
+        return filters?.[filter] ?? []
+    }, [filters, filter]);
 
     const filtersToRender = useMemo(() => {
-        return [...allFilters].sort((a) =>
-            availableFilters.includes(a) ? -1 : 1
-        );
-    }, [allFilters, availableFilters]);
+        return [...allFilters]
+            .filter(item => item.toLowerCase().includes(searchQuery.toLowerCase()))
+            .sort((a) =>
+                availableFilters.includes(a) ? -1 : 1
+            );
+    }, [allFilters, availableFilters, searchQuery]);
 
     if (!initialFilters || !filters) return null;
 
@@ -108,6 +135,13 @@ const FiltersPicker: React.FC<IFiltersPickerProps> = ({onClose, filter}) => {
                 <PickerSubtitle>Оберіть необхідні фільтри</PickerSubtitle>
                 <CloseButton onClick={onClose}/>
             </PickerHeader>
+            <SearchBarWrap>
+                <SearchBar
+                    placeholder={'Пошук по фільтру'}
+                    value={searchQuery}
+                    onChange={handleSearchQueryChange}
+                />
+            </SearchBarWrap>
             <PickerList>
                 {filtersToRender.map(filter => (
                     <PickerButton

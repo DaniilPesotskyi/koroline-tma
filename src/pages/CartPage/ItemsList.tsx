@@ -9,6 +9,7 @@ import useTelegram from "@/hooks/useTelegram.ts";
 import {useCart} from "@/context/CartContext.tsx";
 
 import {CartItem} from "@/components";
+import {EmptyMessage} from "@/pages/CartPage/styles.ts";
 
 const ItemsList: React.FC<ICartStepProps> = ({onNext}) => {
     const navigate = useNavigate()
@@ -16,6 +17,8 @@ const ItemsList: React.FC<ICartStepProps> = ({onNext}) => {
     const {
         addBackButtonHandler,
         addMainButtonHandler,
+        disableMainButton,
+        enableMainButton
     } = useTelegram()
 
     useEffect(() => {
@@ -27,6 +30,27 @@ const ItemsList: React.FC<ICartStepProps> = ({onNext}) => {
             unsubscribeBackButton()
         }
     }, []);
+
+    useEffect(() => {
+        if(items.length === 0) {
+            disableMainButton()
+        } else {
+            enableMainButton()
+        }
+
+        return () => {
+            enableMainButton()
+        }
+
+    }, [items]);
+
+    if(items.length === 0) {
+        return (
+            <EmptyMessage>
+                Ваш кошик порожній :(
+            </EmptyMessage>
+        )
+    }
 
     return (
         <ul>

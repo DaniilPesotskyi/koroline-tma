@@ -6,7 +6,7 @@ export interface IProductPreview {
     design?: string,
     materials?: string,
     name: string,
-    price: number,
+    price_r: number,
     available: boolean,
     photo_example?: string
 }

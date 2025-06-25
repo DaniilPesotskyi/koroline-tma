@@ -136,3 +136,22 @@ export const PickerButton = styled.button<{active: boolean}>`
         }
     `}
 `
+
+// Search
+
+export const SearchBarWrap = styled.div`
+    padding: 0 10px 10px 10px;
+`
+
+export const SearchBar = styled.input`
+    width: 100%;
+    height: 45px;
+    padding: 0 10px;
+    
+    border: 1px solid var(--tg-theme-hint-color);
+    border-radius: var(--border-radius);
+    background-color: var(--tg-theme-bg-color);
+
+    font-size: 15px;
+    color: var(--tg-theme-text-color);
+`
