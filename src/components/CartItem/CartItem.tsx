@@ -88,7 +88,7 @@ const CartItem: React.FC<ICartItemProps> = ({item, disabled}) => {
                         </QuantityPicker>
 
                     <Price>
-                        {item.price_r * item.quantity} ₴
+                        {item.price * item.quantity} ₴
                     </Price>
 
                 </VariantWrap>

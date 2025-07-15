@@ -109,7 +109,7 @@ const ProductPage: React.FC = () => {
                 </GalleryWrap>
                 <Heading>
                     <Article onClick={() => copyToClipboard(data.article)}>{data.article}</Article>
-                    <Price>{data.price_r} ₴</Price>
+                    <Price>{data.price} ₴</Price>
                     <Category>{data.brand} | {data.category}</Category>
                     <AvailableStatus>{availableStatus}</AvailableStatus>
                 </Heading>

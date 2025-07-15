@@ -53,7 +53,7 @@ const Accepting: React.FC<ICartStepProps> = ({onPrev}) => {
 
             items.forEach((item, i) => {
                 // Order for client
-                clientData.message += `🌸*${item.category} ${item.brand}*(${item.article}) \n *${item.quantity} од.* в кольорі *${item.color}* на суму *${item.quantity * item.price_r}* ₴\n`
+                clientData.message += `🌸*${item.category} ${item.brand}*(${item.article}) \n *${item.quantity} од.* в кольорі *${item.color}* на суму *${item.quantity * item.price}* ₴\n`
                 if (i !== items.length - 1) clientData.message += `\n`
                 // Order for manager
                 managerData.message += `${item.barcode} - ${item.quantity}\n`
@@ -97,7 +97,7 @@ const Accepting: React.FC<ICartStepProps> = ({onPrev}) => {
         }
     }, []);
 
-    const total = items.reduce((acc, item) => acc + (item.price_r * item.quantity), 0);
+    const total = items.reduce((acc, item) => acc + (item.price * item.quantity), 0);
 
     return (
         <>

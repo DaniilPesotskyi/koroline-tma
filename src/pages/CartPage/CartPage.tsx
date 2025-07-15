@@ -40,7 +40,7 @@ const stepsVariants: Variants = {
 const ItemsStep = ({activeStep}: { activeStep: number }) => {
     const {items} = useCart()
 
-    const total = items.reduce((acc, item) => acc + (item.price_r * item.quantity), 0);
+    const total = items.reduce((acc, item) => acc + (item.price * item.quantity), 0);
 
     return (
         <Step step={0} currentStep={activeStep} title={'Кошик'} subtitle={`${items.length} товар на суму ${total} ₴`}/>

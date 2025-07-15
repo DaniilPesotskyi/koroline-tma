@@ -44,7 +44,7 @@ const ProductCard: React.FC<ProductCardProps> = ({item}) => {
                 >
                     {item.materials ? item.materials : 'Матеріал відсутній'}
                 </ExpandableText>
-                <Price>{item.price_r} ₴</Price>
+                <Price>{item.price} ₴</Price>
             </div>
             <ImageWrapper>
                 {item.photo_example ? (
